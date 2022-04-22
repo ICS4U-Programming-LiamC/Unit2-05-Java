@@ -7,8 +7,8 @@ import java.util.List;
  * then deletes the ones that are not magic squares
  *
  * @author Liam Csiffary
- * @version 1.0
- * @since 2022-04-11
+ * @version 1.1
+ * @since 2022-04-22
  */
 
 public class MagicNumbers {
@@ -156,9 +156,11 @@ public class MagicNumbers {
     for (int i = 0; i < correctSquares.size(); i++) {
       // for each in the array
       for (int j = 0; j < correctSquares.get(i).length; j++) {
-        System.out.print(correctSquares.get(i)[j] + ", ");
         if ((j + 1) % 3 == 0) {
+          System.out.print(correctSquares.get(i)[j]);
           System.out.println();
+        } else {
+          System.out.print(correctSquares.get(i)[j] + ", ");
         }
       }
       System.out.println("\n");
@@ -172,14 +174,14 @@ public class MagicNumbers {
     // permute(java.util.Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9), 0, squares);
     permuteWithShinking(java.util.Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9), 0, squares);
 
-    System.out.println(squares.size());
+    System.out.println("Number of still possible squares " + squares.size());
 
     List<int[]> finalList = new ArrayList<int[]>();
     List<int[]> finalSet = new ArrayList<int[]>();
     // finalSet = isMagicSquare(squares);
     finalSet = isMagicSquareReccur(squares, 0, finalList);
 
-    System.out.println(finalSet.size());
+    System.out.println("Remaining squares after finding sums " + finalSet.size());
 
     squarePrinter(finalSet);
 
